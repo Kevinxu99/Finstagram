@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>View Comments</title>
+	</head>
+	<body>
+		<h1>Comments</h1>
+		<table>
+			{% for comment in comments %}
+			<tr>
+				<td>{{comment.fname}} {{comment.lname}}:</td>
+			</tr>
+			<tr>
+				<td>{{comment.commentText}}</td>
+			</tr>
+			<tr></tr>
+			{% endfor %}
+		</table>
+		<a href="/images">Go back</a>
+	</body>
+</html>

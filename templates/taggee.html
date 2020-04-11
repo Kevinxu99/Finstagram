@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>View Taggees</title>
+	</head>
+	<body>
+		<h1>Taggees</h1>
+		
+		<table>
+			{% for taggee in taggees %}
+			<tr>
+				<td>
+					{{taggee.fname}} {{taggee.lname}}
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+		<br/>
+		<a href="/images">Go back</a>
+	</body>
+</html>

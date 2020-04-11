@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Share Photos</title>
+	</head>
+	<body>
+		<h4>Select the photo ID and the close friend group you want to share to</h4>
+		<div>
+			<form action="/share" method="POST">
+				<label>
+				Photo: 
+				<select name="photoID">
+					{% for photo in photos %}
+					<option>{{photo.photoID}}</option>
+					{% endfor %}
+				</select>
+				</label>
+				<br/>
+				<label>
+				Group: 
+				<select name="group">
+					{% for group in groups %}
+					<option>{{group.groupName}}</option>
+					{% endfor %}
+				</select>
+				</label>
+				<br/>
+				<input type="submit" value="Share Photo">
+			</form>
+		</div>
+		{% if message %}
+	    	{{ message }}
+	    	<br/>
+	    {% endif %}
+		<a href="/uploadImage">Go back</a>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Finstagram</title>
+	</head>
+	<body>
+		<h1>Manage Your Follows</h1>
+		<div>
+			<form action="/follow" method="post">
+				<label>
+					Follow Someone Here:
+					<br/>
+					<input type="text" name="followee" placeholder="Enter Username">
+					<input type="submit" value="Follow">
+				</label>
+			</form>
+		</div>
+		{% if error %}
+	    	{{ error }}
+	    {% endif %}
+	    <br/>
+	    <div>
+	    	<a href="/followRequests">View Follow Requests</a>
+	    </div>
+	     <div>
+	    	<a href="/unfollow">Unfollow Someone</a>
+	    </div>
+	    <br/>
+	    <a href = "/home">Go back</a>
+	</body>
+</html>

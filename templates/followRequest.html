@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Finstagram</title>
+	</head>
+	<body>
+		<h1>Follow Requests</h1>
+		<div>
+			<form action="/followRequests" method="POST">
+			<table border="1">
+				{% for request in requests %}
+				<tr>
+					<td>{{request.followerUsername}}</td>
+					<td>
+						<input type="radio" name="query" value="Update Follow SET acceptedfollow = 1 WHERE followerUsername = '{{request.followerUsername}}' AND followeeUsername = %s">Accept</input>
+						<input type="radio" name="query" value="DELETE FROM Follow WHERE followerUsername = '{{request.followerUsername}}' AND followeeUsername = %s">Remove</input>
+					</td>
+					<td>
+						<input type="submit" value="Confirm">
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+		<a href="/follow">Go back</a>
+	</body>
+</html>

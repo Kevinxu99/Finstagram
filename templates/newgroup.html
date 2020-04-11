@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CloseFriendGroup</title>
+	</head>
+	<body>
+		<h1>Create New Group</h1>
+		<div>
+			<form action="/newgroup" method="POST">
+				<input type="text" name="groupname" placeholder="Enter Group Name" required/>
+				<br/>
+				<input type="submit" value="Create">
+			</form>
+		</div>
+		{% if error %}
+	    	{{ error }}
+	    	<br/>
+	    {% endif %}
+		<a href="/closefriendgroup">Go back</a>
+	</body>
+</html>

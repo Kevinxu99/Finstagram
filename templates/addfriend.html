@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CloseFriendGroup</title>
+	</head>
+	<body>
+		<h1>Add Friend to Your Group!</h1>
+		<div>
+			<form action="/addfriend" method="POST">
+				<select name="group">
+					{% for group in groups %}
+					<option>{{group.groupName}}</option>
+					{% endfor %}
+				</select>
+				<br/>
+				<input type="text" name="friend" placeholder="Enter Username" required/>
+				<br/>
+				<input type="submit" value="Add to the Group">
+			</form>
+		</div>
+		{% if error %}
+	    	{{ error }}
+	    	<br/>
+	    {% endif %}
+		<a href="/closefriendgroup">Go back</a>
+	</body>
+</html>

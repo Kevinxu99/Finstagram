@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Manage Invitations</title>
+	</head>
+	<body>
+		<h1>Manage Your Invitations Here</h1>
+		<div>
+			<form action="/invite" method="POST">
+			<table border="1">
+				<tr>
+					<th>Group Name</th>
+					<th>Group Owner</th>
+					<th>Action</th>
+				</tr>
+				{% for invite in invites %}
+				<tr>
+					<td>{{invite.groupName}}</td>
+					<td>{{invite.groupOwner}}</td>
+					<td>
+						<input type="radio" name="query" value="Update Belong SET acceptedInvite = 1 WHERE groupName = '{{invite.groupName}}' AND groupOwner = '{{invite.groupOwner}}' AND username = %s">Accept</input>
+						<input type="radio" name="query" value="DELETE FROM Belong WHERE groupName = '{{invite.groupName}}' AND groupOwner = '{{invite.groupOwner}}' AND username = %s">Decline</input>
+						<input type="submit" value="Confirm">
+					</td>
+				</tr>
+				<br/>
+				{% endfor %}
+			</table>
+		</div>
+		<a href="/closefriendgroup">Go back</a>
+	</body>
+</html>

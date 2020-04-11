@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>View Likes</title>
+	</head>
+	<body>
+		<h1>Likes</h1>
+		
+		<table>
+			{% for like in likes %}
+			<tr>
+				<td>
+					{{like.fname}} {{like.lname}}
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+		<br/>
+		<a href="/images">Go back</a>
+	</body>
+</html>
